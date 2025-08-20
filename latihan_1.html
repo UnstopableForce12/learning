@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Floating Label</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eaeaea;
+      font-family: Arial, sans-serif;
+    }
+
+    #kotak-login {
+      background-color: #444;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    #kotak-login h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .kolom-input {
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .kolom-input input {
+      width: 100%;
+      padding: 12px 10px;
+      border: none;
+      border-radius: 6px;
+      outline: none;
+      background: #666;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .kolom-input label {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #bbb;
+      font-size: 14px;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    /* efek floating label */
+    .kolom-input input:focus ~ label,
+    .kolom-input input:not(:placeholder-shown) ~ label {
+      top: -8px;
+      left: 8px;
+      font-size: 12px;
+      background: #444;
+      padding: 0 4px;
+      color: #fff;
+      border-radius: 4px;
+    }
+    #login{
+        padding: 10px 40px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    #login:hover{
+        background-color: blue;
+        color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="kotak-login">
+    <h3>Login</h3>
+
+    <div class="kolom-input">
+      <input type="text" name="name" placeholder=" " required>
+      <label for="name">Name</label>
+    </div>
+
+    <div class="kolom-input">
+      <input type="password" name="password" placeholder=" " required>
+      <label for="password">Password</label>
+    </div>
+
+    <button id="login">Login</button>
+    <a href="" style="color: white; font-size: 10px;margin-top: 10px;text-decoration: none;">Don't have account? sign up here</a>
+  </div>
+</body>
+</html>
