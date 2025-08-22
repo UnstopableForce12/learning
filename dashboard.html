@@ -3,9 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SIS KAPEL</title>
+    <style>
+        :root {
+            --primary-color: blueviolet;
+            --background-color: rgb(223, 223, 223);
+            --nav-background: white;
+            --section-background: white;
+            --text-color: black;
+            --hover-background: blueviolet;
+            --hover-text-color: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text-color);
+        }
+
+        body {
+            height: 100vh;
+            background-color: var(--background-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--nav-background);
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        header h3 {
+            color: var(--text-color);
+        }
+
+        header span {
+            color: var(--primary-color);
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            background-color: var(--section-background);
+            border-right: 1px solid var(--primary-color);
+        }
+
+        aside a {
+            padding: 15px 5px;
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        aside a:hover {
+            background-color: var(--hover-background);
+            color: var(--hover-text-color);
+            transform: scale(1.05) translateX(2%);
+        }
+
+        .content {
+            margin: 10px;
+            padding: 10px;
+            background-color: var(--section-background);
+            flex-grow: 1;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--primary-color);
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <h3>SIS<span>KAPEL</span></h3>
+    </header>
+    <main>
+        <aside>
+            <a href="#">Burger Menu 1</a>
+            <a href="#">Burger Menu 2</a>
+            <a href="#">Burger Menu 3</a>
+            <a href="#">Burger Menu 4</a>
+            <a href="#">Burger Menu 5</a>
+        </aside>
+        <div class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quibusdam eveniet quisquam. A nulla eveniet mollitia libero animi quaerat deleniti ipsam dolorem quod, vitae quibusdam, ipsa dolor. Sint, vero fugit.
+        </div>
+    </main>
 </body>
 </html>

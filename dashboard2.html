@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            height: 100vh;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            border-bottom: 1px solid orange;
+            padding-left: 10px;
+        }
+        #nav{
+            display: flex;
+        }
+        #nav a{
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            padding: 20px;
+            transition: 0.2s ease;
+        }
+        #nav a:hover{
+            color: white;
+            background-color: orange;
+            transform: scale(1.1);
+        }
+        aside{
+            display: flexbox;
+            width: 100px;
+            position: relative;
+            border-right: 1px solid orange;
+        }
+        aside ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+        aside li{
+            padding: 10px;
+        }
+        #side-nav{
+            position: relative;
+            bottom: 0px ;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2 style="color: black;">SIS<span style="color: rgb(255, 163, 42);">KAPEL</span></h2>
+        <span id="nav">
+            <a href="">Menu</a>
+            <a href="">Menu</a>
+            <a href="">Menu</a>
+            <a href="">Menu</a>
+            <a href="">Menu</a>
+        </span>
+    </nav>
+    <aside>
+        <ul>
+            <li>Menu</li>
+            <li>Menu</li>
+            <li>Menu</li>
+            <li>Menu</li>
+            <li>Menu</li>
+            <span id="side-nav">
+                <li>logout</li>
+            </span>
+        </ul>
+    </aside>
+</body>
+</html>
