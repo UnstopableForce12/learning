@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dot Navigator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /* border: 1px solid red; /* Keep for debugging, but remove for final */
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .wrapper {
+        display: flex;
+        gap: 20px;
+      }
+
+      .dots {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .arrow {
+        width: 50px;
+        height: 50px;
+        background-color: azure;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none; /* Better look */
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+      }
+
+      .dot {
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        transition: all 0.3s ease; /* Smooth transition */
+      }
+
+      /* NEW: Style for the active dot */
+      .dot.active {
+        background-color: dodgerblue; /* Highlighted color */
+        width: 12px;
+        height: 12px;
+      }
+
+      .images {
+        width: 300px;
+        height: 200px;
+        opacity: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .images.active {
+        opacity: 100%;
+        top: 0;
+        left: 0;
+        margin: 10px;
+        z-index: 100;
+        border-radius: 16px;
+        border: 2px solid red;
+      }
+
+      .img-wrapper{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-wrapper">
+        <img src="https://picsum.photos/id/237/200/300" alt="" class="images active">
+        <img src="https://picsum.photos/id/236/200/300" alt="" class="images">
+        <img src="https://picsum.photos/id/238/200/300" alt="" class="images">
+        <img src="https://picsum.photos/id/239/200/300" alt="" class="images">
+        <img src="https://picsum.photos/id/236/200/300" alt="" class="images">
+    </div>
+    <div class="wrapper">
+      <button class="arrow" onclick="aktif(-1)">&#8592;</button>
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <button class="arrow" onclick="aktif(1)">&#8594;</button>
+    </div>
+
+    <script>
+      // FIXED: Select by class name '.dot'
+      const dots = document.querySelectorAll(".dot");
+      const images = document.querySelectorAll(".images");
+
+      // Start index at 0, since the first dot has the 'active' class in HTML
+      let index = 0;
+
+      // Initial setup loop is removed.
+      setInterval(() => {
+        aktif(1);
+      }, 5000);
+
+      function aktif(a) {
+        // Check if any dots exist before proceeding
+        if (dots.length === 0) return;
+
+        // 1. Remove 'active' class from the current dot
+        dots[index].classList.remove("active");
+        images[index].classList.remove("active");
+
+        // 2. FIXED: Correctly update the index (increment/decrement)
+        index += a;
+
+        // 3. Wrap the index to loop from last to first and vice versa
+        if (index >= dots.length) {
+          index = 0; // Wrap to the first element
+        } else if (index < 0) {
+          index = dots.length - 1; // Wrap to the last element
+        }
+
+        // 4. Add 'active' class to the new dot
+        dots[index].classList.add("active");
+        images[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

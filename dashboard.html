@@ -83,11 +83,18 @@
             main {
                 flex-direction: column;
             }
-
+            
             aside {
                 width: 100%;
                 border-right: none;
                 border-bottom: 1px solid var(--primary-color);
+                display: none;
+            }
+            aside a:hover{
+                transform: none;
+            }
+            #nav-button:active aside{
+                display: block;
             }
         }
     </style>
@@ -95,6 +102,7 @@
 <body>
     <header>
         <h3>SIS<span>KAPEL</span></h3>
+        <a href="" style="display: block;" id="nav-button">a</a>
     </header>
     <main>
         <aside>
